@@ -11,7 +11,7 @@ class Alarm:
     )
 
     def __init__(self):
-        self.counter = 5  # default timer
+        self.counter = 45  # default timer
         self.timer = Timer()
 
     def clear_screen(self):

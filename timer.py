@@ -25,6 +25,6 @@ class Timer:
         while timer:
             print('{} minutes left'.format(timer))
             timer -= 1
-            time.sleep(1)
+            time.sleep(60)
         print('Timer ended\n')
         self.timer_ended()
