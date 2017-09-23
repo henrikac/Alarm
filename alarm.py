@@ -6,11 +6,13 @@ from timer import Timer
 class Alarm:
     options = (
         ('start', 'Start timer'),
+        ('set timer', 'Here you can set a new timer'),
         ('quit', 'Exit the program')
     )
 
     def __init__(self):
-        self.timer = 45  # default timer
+        self.counter = 5  # default timer
+        self.timer = Timer()
 
     def clear_screen(self):
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -18,10 +20,13 @@ class Alarm:
     def print_options(self):
         for option in self.options:
             print('{}: {}'.format(option[0], option[1]))
+        print('\nCurrent timer: {} minutes'.format(self.counter))
+
+    def set_timer(self):
+        self.counter = self.timer.change_timer()
 
     def start(self):
-        timer = Timer(self.timer)
-        timer.start()
+        self.timer.start(self.counter)
 
     def run(self):
         self.clear_screen()
@@ -34,7 +39,7 @@ The standard timer is set to 45 minutes, but you can set it to anything you like
         self.print_options()
 
         while True:
-            choice = input('\nWhat do you want to do? ').lower()
+            choice = input('\nWhat do you want to do? ').lower().strip()
 
             if choice == 'quit':
                 break
@@ -42,8 +47,12 @@ The standard timer is set to 45 minutes, but you can set it to anything you like
                 self.clear_screen()
                 self.start()
                 self.print_options()
+            elif choice == 'set timer':
+                self.set_timer()
+                self.clear_screen()
+                self.print_options()
             else:
-                print('That is not a valid input, try again\n.')
+                print('That is not a valid input, try again.\n')
 
 
 if __name__ == '__main__':
