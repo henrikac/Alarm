@@ -29,7 +29,8 @@ class Alarm:
 Welcome.
 \nThis program will help you reduce risk for short/long term damage.
 The program will tell you when it's time for a break away from the computer (minimum 5 minutes).
-The stardard timer is set to 45 minutes, but you can set it to anything you like (between 1 and 120 minutes).\n''')
+You know it's time for a break when you hear the song 'Banana Phone' playing.
+The standard timer is set to 45 minutes, but you can set it to anything you like (between 1 and 120 minutes).\n''')
         self.print_options()
 
         while True:
