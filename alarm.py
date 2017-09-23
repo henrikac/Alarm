@@ -4,10 +4,10 @@ from timer import Timer
 
 
 class Alarm:
-    options = [
-        ['start', 'Start timer'],
-        ['quit', 'Exit the program']
-    ]
+    options = (
+        ('start', 'Start timer'),
+        ('quit', 'Exit the program')
+    )
 
     def __init__(self):
         self.timer = 45  # default timer
