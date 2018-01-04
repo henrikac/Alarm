@@ -1,17 +1,18 @@
 import os
 
+from settings import Settings
 from timer import Timer
 
 
 class Alarm:
     options = (
         ('start', 'Start timer'),
-        ('set timer', 'Here you can set a new timer'),
+        ('settings', 'Here you can change the settings'),
         ('quit', 'Exit the program')
     )
 
     def __init__(self):
-        self.counter = 45  # default timer
+        self.settings = Settings()
         self.timer = Timer()
 
     def clear_screen(self):
@@ -20,13 +21,7 @@ class Alarm:
     def print_options(self):
         for option in self.options:
             print('{}: {}'.format(option[0], option[1]))
-        print('\nCurrent timer: {} minutes'.format(self.counter))
-
-    def set_timer(self):
-        self.counter = self.timer.change_timer()
-
-    def start(self):
-        self.timer.start(self.counter)
+        print('\nCurrent timer: {} minutes'.format(self.settings.counter))
 
     def run(self):
         self.clear_screen()
@@ -45,10 +40,10 @@ The standard timer is set to 45 minutes, but you can set it to anything you like
                 break
             elif choice == 'start':
                 self.clear_screen()
-                self.start()
+                self.timer.start(self.settings.counter)
                 self.print_options()
             elif choice == 'set timer':
-                self.set_timer()
+                self.settings.change_timer()
                 self.clear_screen()
                 self.print_options()
             else:
