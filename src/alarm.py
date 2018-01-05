@@ -1,5 +1,6 @@
 import os
 
+from scraper import Scraper
 from settings import Settings
 from timer import Timer
 
@@ -12,6 +13,7 @@ class Alarm:
     )
 
     def __init__(self):
+        self.scraper = Scraper()
         self.settings = Settings()
         self.timer = Timer()
 
@@ -22,7 +24,7 @@ class Alarm:
         for option in options:
             print('{}: {}'.format(option[0], option[1]))
         print('\nCurrent timer: {} minutes'.format(self.settings.counter))
-        print('Current \'reminder song\': {}'.format(self.settings.reminder_song))
+        print('Current \'reminder song\': {}'.format(self.scraper.scrape_url(self.settings.reminder_song)))
 
     def run(self):
         self.clear_screen()

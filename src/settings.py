@@ -1,7 +1,3 @@
-# TODO: request and beautifulsoup
-# TODO: get title of youtube song
-
-
 class Settings:
     options = (
         ('timer', 'Here you can set a new timer.'),
