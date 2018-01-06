@@ -9,4 +9,6 @@ class Scraper:
 
     def scrape_url(self, url):
         soup = BeautifulSoup(self.make_request(url), 'html.parser')
-        return soup.title.string
+        title_arr = soup.title.string.split()
+        scraped_title = ' '.join(title_arr[:-2])  # slicing off '- Youtube' at the end of the title
+        return scraped_title

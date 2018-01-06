@@ -42,8 +42,8 @@ class Settings:
         print('Type \'quit\' to go back without changing the \'reminder song\'.')
 
         while True:
-            new_reminder_song = input('\nEnter url for the new song: ').lower()
-            if new_reminder_song == 'quit':
+            new_reminder_song = input('\nEnter url for the new song: ')
+            if new_reminder_song.lower() == 'quit':
                 break
             elif 'youtube' not in new_reminder_song:
                 print('Please enter a url for a youtube video.')

@@ -21,10 +21,11 @@ class Alarm:
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def print_options(self, options):
+        scraped_title = self.scraper.scrape_url(self.settings.reminder_song)
         for option in options:
             print('{}: {}'.format(option[0], option[1]))
         print('\nCurrent timer: {} minutes'.format(self.settings.counter))
-        print('Current \'reminder song\': {}'.format(self.scraper.scrape_url(self.settings.reminder_song)))
+        print('Current \'reminder song\': {}'.format(scraped_title))
 
     def run(self):
         self.clear_screen()
